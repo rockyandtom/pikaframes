@@ -1,10 +1,8 @@
 {
-    "version": 2,
-    "routes": [
-      { "handle": "filesystem" },
-      { "src": "/images/(.*)", "dest": "/images/$1" },
-      { "src": "/videos/(.*)", "dest": "/videos/$1" }
-    ],
-    "buildCommand": "",
-    "outputDirectory": "."
-  }
+  "version": 2,
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/pikaframes-website/images/(.*)", "dest": "/pikaframes-website/images/$1" },
+    { "src": "/pikaframes-website/videos/(.*)", "dest": "/pikaframes-website/videos/$1" }
+  ]
+}
