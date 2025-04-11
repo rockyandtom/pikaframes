@@ -2,7 +2,7 @@
   "version": 2,
   "routes": [
     { "handle": "filesystem" },
-    { "src": "/pikaframes-website/images/(.*)", "dest": "/pikaframes-website/images/$1" },
-    { "src": "/pikaframes-website/videos/(.*)", "dest": "/pikaframes-website/videos/$1" }
+    { "src": "/images/(.*)", "dest": "/pikaframes-website/pikaframes-website/images/$1" },
+    { "src": "/videos/(.*)", "dest": "/pikaframes-website/pikaframes-website/videos/$1" }
   ]
 }
