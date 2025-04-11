@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Function to check if media files exist and show them if they do
 function checkAndShowMedia() {
+    console.log("Checking media files...");
     // Check and show videos
     document.querySelectorAll('video').forEach(video => {
         const videoSource = video.querySelector('source');
@@ -33,6 +34,7 @@ function checkAndShowMedia() {
             // Check if the video file exists and is accessible
             fetch(url, { method: 'HEAD' })
                 .then(response => {
+                    console.log("Video fetch response for", url, ":", response.status);
                     if (response.ok) {
                         // If video exists, hide placeholder and show video
                         const container = video.closest('.video-container') || video.parentElement;
@@ -48,7 +50,15 @@ function checkAndShowMedia() {
                     }
                 })
                 .catch(error => {
-                    console.log('Video not found or cannot be accessed:', url);
+                    console.error('Video not found or cannot be accessed:', url);
+// Add event listeners for better debugging
+video.addEventListener("error", function(e) {
+    console.error("Video error event:", url, e);
+});
+
+video.addEventListener("canplay", function() {
+    console.log("Video can play:", url);
+});
                 });
         }
     });
